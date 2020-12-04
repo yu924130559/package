@@ -13,6 +13,7 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'no-debugger': 'off',
-    'vue/no-unused-vars': 'off'
+    'vue/no-unused-vars': 'off',
+    'vue/no-unused-components': 'warn'
   }
 }
