@@ -48,33 +48,18 @@
         <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
-<el-table
-    ref="multipleTable"
-    :data="tableData"
-    tooltip-effect="dark"
-    style="width: 100%"
-    @selection-change="handleSelectionChange">
-    <el-table-column
-      type="selection"
-      width="55">
-    </el-table-column>
-    <el-table-column
-      label="日期"
-      width="120">
-      <template slot-scope="scope">{{ scope.row.date }}</template>
-    </el-table-column>
-    <el-table-column
-      prop="name"
-      label="姓名"
-      width="120">
-    </el-table-column>
-    <el-table-column
-      prop="address"
-      label="地址"
-      show-overflow-tooltip>
-    </el-table-column>
-  </el-table>
-  
+    <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
+      <el-table-column type="selection" width="55">
+      </el-table-column>
+      <el-table-column label="日期" width="120">
+        <template slot-scope="scope">{{ scope.row.date }}</template>
+      </el-table-column>
+      <el-table-column prop="name" label="姓名" width="120">
+      </el-table-column>
+      <el-table-column prop="address" label="地址" show-overflow-tooltip>
+      </el-table-column>
+    </el-table>
+
   </div>
 </template>
 <script>
@@ -130,36 +115,44 @@ export default {
         ],
         desc: [{ required: true, message: '请填写活动形式', trigger: 'blur' }]
       },
-      tableData: [{
+      tableData: [
+        {
           date: '2016-05-03',
           name: '王小虎',
           address: '上海市普陀区金沙江路 1518 弄'
-        }, {
+        },
+        {
           date: '2016-05-02',
           name: '王小虎',
           address: '上海市普陀区金沙江路 1518 弄'
-        }, {
+        },
+        {
           date: '2016-05-04',
           name: '王小虎',
           address: '上海市普陀区金沙江路 1518 弄'
-        }, {
+        },
+        {
           date: '2016-05-01',
           name: '王小虎',
           address: '上海市普陀区金沙江路 1518 弄'
-        }, {
+        },
+        {
           date: '2016-05-08',
           name: '王小虎',
           address: '上海市普陀区金沙江路 1518 弄'
-        }, {
+        },
+        {
           date: '2016-05-06',
           name: '王小虎',
           address: '上海市普陀区金沙江路 1518 弄'
-        }, {
+        },
+        {
           date: '2016-05-07',
           name: '王小虎',
           address: '上海市普陀区金沙江路 1518 弄'
-        }],
-        multipleSelection: []
+        }
+      ],
+      multipleSelection: []
     }
   },
   methods: {
@@ -177,17 +170,27 @@ export default {
       this.$refs[formName].resetFields()
     },
     toggleSelection(rows) {
-        if (rows) {
-          rows.forEach(row => {
-            this.$refs.multipleTable.toggleRowSelection(row);
-          });
-        } else {
-          this.$refs.multipleTable.clearSelection();
-        }
-      },
-      handleSelectionChange(val) {
-        this.multipleSelection = val;
+      if (rows) {
+        rows.forEach(row => {
+          this.$refs.multipleTable.toggleRowSelection(row)
+        })
+      } else {
+        this.$refs.multipleTable.clearSelection()
       }
+    },
+    handleSelectionChange(val) {
+      this.multipleSelection = val
+    }
+  },
+  mounted() {
+    this.$axios({
+      url: '/api/content_list',
+      method: 'GET'
+    })
+      .then(() => {})
+      .catch(err => {
+        console.log(err)
+      })
   }
 }
 </script>
