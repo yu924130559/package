@@ -1,0 +1,16 @@
+{
+  "message": "hello i18n !!",
+  "serial_number": "Serial number",
+"xx_icon": "XX Icon",
+"xxid": "xxid",
+"xx_name": "XX name",
+"xx_date": "XX date",
+"state": "state",
+"operation": "operation",
+"edit": "edit",
+"delete": "delete",
+"see": "see",
+"to_examine": "to examine",
+"in_sync": "In sync"
+
+}

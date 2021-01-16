@@ -5,6 +5,7 @@ import Home from '../views/Home.vue'
 import content from '../views/content/content.vue'
 import content_info from '../views/content/content_info.vue'
 import content_list from '../views/content/content_list.vue'
+import package_list from '../views/package/package_list.vue'
 
 
 
@@ -30,6 +31,11 @@ const routes = [
         component: content_list
       }
     ]
+  },
+  {
+    path: '/package_list',
+    // name: 'content',
+    component:package_list,
   },
   {
     path: '/about',

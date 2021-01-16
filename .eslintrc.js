@@ -14,6 +14,8 @@ module.exports = {
     'no-console': 'off',
     'no-debugger': 'off',
     'vue/no-unused-vars': 'off',
-    'vue/no-unused-components': 'warn'
+    'vue/no-unused-components': 'warn',
+    'no-unused-vars':'warn'
+
   }
 }
